@@ -1,2 +1,7 @@
 <h2>Mad Phone </h2>
+
 <%= react_component('NewSentence')%>
+
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
