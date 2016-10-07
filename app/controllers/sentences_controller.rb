@@ -1,8 +1,10 @@
 class SentencesController < ApplicationController
-
-
 def new
+end
+
+def index
   @sentence = get_random_sentence
+  render json: @sentence.to_json
 end
 
 def create
