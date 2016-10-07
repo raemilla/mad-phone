@@ -1,0 +1,9 @@
+<h2>Mad Phone </h2>
+
+<%=@sentence.text%>
+<%= form_tag "/sentences", :id => "my_form" do -%>
+<%= hidden_field_tag :story_id, @sentence.story_id %>
+<%= text_area_tag "sentence"%>
+<%= submit_tag "Submit" %>
+<% end -%>
+
