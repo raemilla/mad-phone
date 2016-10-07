@@ -14,6 +14,7 @@ module SentencesHelper
         return sentence
       end
     end
+    return []
   end
 
 end
