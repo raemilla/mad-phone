@@ -1,0 +1,21 @@
+<h2>Mad Phone </h2>
+
+<%
+def get_random_sentence
+  stories = Story.all
+  ready_stories = []
+  stories.each do |story|
+    unless story.finished? && story.user_id == current_user.id
+      ready_stories <<  story
+    end
+  end
+  ready_stories.sample.sentences.last
+end
+%>
+
+<%=get_random_sentence%>
+<%= form_tag("/sentence", method: "post") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
