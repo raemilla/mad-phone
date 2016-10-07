@@ -17,10 +17,10 @@
       </ul>
       <% if current_user %>
       <ul class="nav navbar-nav user-nav">
-        <li class="nav-item"><a><%= current_user.name %></a></li>
-        <li class="nav-item"><a>Browse</a></li>
-        <li class="nav-item"><a>Contribute</a></li>
-        <li class="nav-item"><a>Create</a></li>
+        <li class="nav-item"><a class="nav-link"><%= current_user.name %></a></li>
+        <li class="nav-item"><a class="nav-link">Browse</a></li>
+        <li class="nav-item"><a class="nav-link" href="/sentences/new" >Contribute</a></li>
+        <li class="nav-item"><a class="nav-link" href="/stories/new">Create</a></li>
       </ul>
       <% end %>
     </nav>
