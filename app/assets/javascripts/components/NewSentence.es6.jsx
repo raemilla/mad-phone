@@ -42,14 +42,26 @@ class NewSentence extends React.Component {
   }
 
   render () {
-
-    return (
-      <div>
+    let sentenceWaiter
+    if (this.state.sentence.text) {
+      sentenceWaiter = <div>
       <p>{this.state.sentence.text}</p>
       <form onSubmit={this.handleSubmit}>
         <textarea placeholder="continue the story" ref="sentence" name="sentence"></textarea><br></br>
         <input type="submit"/>
       </form>
+      </div>
+    } else {
+      sentenceWaiter = <div>
+        <p>You contributed to all of the stories!</p>
+        <p>Why not create your own?</p>
+        <a href="/stories/new">Create a story </a>
+      </div>
+    }
+
+    return (
+      <div>
+      {sentenceWaiter}
       </div>
     )
   }
