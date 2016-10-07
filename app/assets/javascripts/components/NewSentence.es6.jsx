@@ -45,10 +45,14 @@ class NewSentence extends React.Component {
     let sentenceWaiter
     if (this.state.sentence.text) {
       sentenceWaiter = <div>
-      <p>{this.state.sentence.text}</p>
+
+      <p className="sentence-header">" {this.state.sentence.text} "</p>
+
       <form onSubmit={this.handleSubmit}>
-        <textarea placeholder="continue the story" ref="sentence" name="sentence"></textarea><br></br>
-        <input type="submit"/>
+        <div className="form-group">
+        <textarea className="form-control" placeholder="continue the story" ref="sentence" name="sentence"></textarea>
+        </div>
+        <input className="btn btn-primary" type="submit"/>
       </form>
       </div>
     } else {
