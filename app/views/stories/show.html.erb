@@ -1,0 +1,24 @@
+<% if current_user.id == @story.user_id %>
+  <p>
+    <%@story.sentences.each do |sentence| %>
+      <%=sentence.text%>
+    <%end%>
+  </p>
+  <% unless @story.finished %>
+    <form class="mark-done" action="/stories/<%=@story.id%>" method="POST">
+       <input type="hidden" name="_method" value="PUT"/>
+       <input type="submit" name="finished?" value="Mark story as complete"/>
+      </form>
+  <%end %>
+<% else %>
+  <p> <%=@story.sentences.last.text %> </p>
+  <% unless @story.sentences.last.user_id == current_user.id %>
+    <%= form_tag "/sentences", :id => "my_form" do -%>
+      <%= hidden_field_tag :story_id, @story.id %>
+      <%= text_area_tag "sentence"%>
+      <%= submit_tag "Submit" %>
+    <% end -%>
+  <% end %>
+
+<%end%>
+

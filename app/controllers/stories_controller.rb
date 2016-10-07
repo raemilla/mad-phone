@@ -12,6 +12,15 @@ class StoriesController < ApplicationController
     redirect_to new_sentence_path
   end
 
+  def show
+    @story = Story.find(params[:id])
+  end
+
+  def update
+    @story = Story.find(params[:id])
+    @story.update(finished: true)
+
+  end
   # private
   # def story_params
   #   params.require(:story).permit(:first_sentence)
