@@ -18,3 +18,22 @@
   position: relative;
   left: 740px;
 }
+
+
+/*User Profile Page*/
+.user-profile {
+  padding: 80px;
+}
+
+.col-md-8 {
+  padding-bottom: 30px;
+}
+
+.list-group-item {
+  text-align: left;
+}
+
+.thumbnail {
+  border: 1px solid lightgray;
+  padding: 10px;
+}
