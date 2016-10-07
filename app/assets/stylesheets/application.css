@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.user-nav {
+  position: relative;
+  left: 740px;
+}
