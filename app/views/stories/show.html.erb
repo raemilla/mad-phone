@@ -6,7 +6,7 @@
     $('#my_form').on('submit',function(){
       var response = $('textarea').val()
       $('#my_form').hide();
-      $('#my_form').append(response)
+      $('.sentence-add').after(response)
     });
   });
 </script>
