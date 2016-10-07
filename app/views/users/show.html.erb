@@ -4,27 +4,26 @@
       <div class="thumbnail">
         <%= image_tag("jane-austen.jpg") %>
         <div class="caption">
-          <h5>Jane Austen Powers</h5>
+          <h5><%= @user.name %></h5>
           <p>Born in Little Rock, Arkansas, I love to write books and host tea parties, and I like zebras and penguins.</p>
           <p><a href="#" class="btn btn-primary" role="button">Join a story</a> <a href="#" class="btn btn-primary" role="button">Start a story</a></p>
         </div>
       </div>
     </div>
     <div class="col-md-8">
-      <h5>My stories — In Process </h5>
+      <h5>My stories — In Progress </h5>
       <div class="list-group">
-        <button type="button" class="list-group-item btn-block">Once upon a table, there was a loaf of bread named ...</button>
-        <button type="button" class="list-group-item btn-block">Dapibus ac facilisis in</button>
+        <% @user.stories.where(finished: false).each do |story| %>
+        <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
+        <% end %>
       </div>
     </div>
     <div class="col-md-8 col-md-offset-4">
       <h5>My stories — Complete </h5>
       <div class="list-group">
-        <button type="button" class="list-group-item btn-block">Once upon a table, there was a loaf of bread named ...</button>
-        <button type="button" class="list-group-item btn-block">Dapibus ac facilisis in</button>
-        <button type="button" class="list-group-item btn-block">Morbi leo risus</button>
-        <button type="button" class="list-group-item btn-block">Porta ac consectetur ac</button>
-        <button type="button" class="list-group-item btn-block">Vestibulum at eros</button>
+        <% @user.stories.where(finished: true).each do |story| %>
+        <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
+        <% end %>
       </div>
     </div>
   </div>
