@@ -5,7 +5,7 @@ def get_random_sentence
   stories = Story.all
   ready_stories = []
   stories.each do |story|
-    unless story.finished? && story.user_id == current_user.id
+    unless story.finished? || story.user_id == current_user.id
       ready_stories <<  story
     end
   end
@@ -14,8 +14,7 @@ end
 %>
 
 <%=get_random_sentence%>
-<%= form_tag("/sentence", method: "post") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<%= form_tag "submit", :id => "my_form" do -%>
+<%= text_area_tag "comment", :rows => 4, :cols => 50 %>
+  <%= submit_tag "Submit" %>
+<% end -%>
