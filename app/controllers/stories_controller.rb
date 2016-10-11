@@ -31,7 +31,7 @@ class StoriesController < ApplicationController
         completed = Story.all.select { |story| story.finished }
         stories_arr = completed.last.order.reverse.limit(10)
       end
-      render json: stories_arr.as_json(include: :sentences)
+      render json: stories_arr.as_json(include: :user)
     end
   end
   # private
