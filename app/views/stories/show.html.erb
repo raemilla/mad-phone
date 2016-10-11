@@ -8,13 +8,32 @@
       $('#my_form').hide();
       $('.sentence-add').append(response)
     });
+
+    $('.vote').on('submit', function(event){
+      event.preventDefault();
+      $.ajax({
+        method: "post",
+        url: "/votes",
+        data: $(event.target).serialize()
+      }).done(function(response){
+        $('.vote-total').replaceWith(`<span class='vote-total'>${response}</span>`)
+      })
+    });
   });
 </script>
 
-<section>
-  <form><i type="submit" class="fa fa-thumbs-o-up" aria-hidden="true" name="upvote"></i></form>
-    <%= @story.sum %>
-  <form><i type="submit" class="fa fa-thumbs-o-down" aria-hidden="true" name="downvote"></i></form>
+<section class="voting-form">
+  <form class="vote">
+    <input type="hidden" name="story" value="<%= @story.id %>">
+    <input type="hidden" name="vote" value="upvote">
+    <i class="fa fa-thumbs-o-up thumb" aria-hidden="true"><input type="submit"></i>
+  </form>
+    <span class="vote-total"><%= @story.sum %></span>
+  <form class="vote">
+    <input type="hidden" name="story" value="<%= @story.id%>">
+    <input type="hidden" name="vote" value="downvote">
+    <i class="fa fa-thumbs-o-down thumb" aria-hidden="true"><input type="submit"></i>
+  </form>
 </section>
 
 <% if current_user.id == @story.user_id %>
