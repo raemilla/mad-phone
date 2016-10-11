@@ -1,29 +1,41 @@
 <div class="container user-profile">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-xs-4 col-md-4">
       <div class="thumbnail">
-        <%= image_tag("jane-austen.jpg") %>
+        <%= image_tag("jane-austen.jpg", class: "img-responsive") %>
         <div class="caption">
           <h5><%= @user.name %></h5>
           <p>Born in Little Rock, Arkansas, I love to write books and host tea parties, and I like zebras and penguins.</p>
+<<<<<<< 15d552a9d7251072e9e542e94e84d7bf5f6ab9c8
           <p><a href="#" class="btn btn-primary" role="button">Join a story</a> <a href="/stories/new" class="btn btn-primary" role="button">Start a story</a></p>
+=======
+          <p><a href="/sentences/new" class="btn btn-primary" role="button">Join a story</a> <a href="/stories/new" class="btn btn-primary" role="button">Start a story</a></p>
+>>>>>>> css
         </div>
       </div>
     </div>
-    <div class="col-md-8">
-      <h5>My stories — In Progress </h5>
-      <div class="list-group">
-        <% @user.stories.where(finished: false).each do |story| %>
-        <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
-        <% end %>
+    <div class="col-xs-12 col-md-8">
+      <div class="container">
+        <h5>My stories — In Progress </h5>
+        <div class="list-group">
+          <% @user.stories.where(finished: false).each do |story| %>
+          <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-md-8 col-md-offset-4">
-      <h5>My stories — Complete </h5>
-      <div class="list-group">
-        <% @user.stories.where(finished: true).each do |story| %>
-        <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
-        <% end %>
+      <div class="container">
+        <h5>My stories — Complete </h5>
+        <div class="list-group">
+          <% @user.stories.where(finished: true).each do |story| %>
+          <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
+          <% end %>
+        </div>
+        <h5>Stories - Contributed to</h5>
+        <div class="list-group">
+          <% @user.sentences.each do |sentence| %>
+          <a class="list-group-item btn-block" href="/sentences/<%=sentence.id%>"><%= sentence.text %></a>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class = "notifications">
