@@ -19,26 +19,26 @@ users = [
 User.create!(users)
 
 stories = [
-  {user_id: 1},
-  {user_id: 2},
-  {user_id: 2},
-  {user_id: 3},
-  {user_id: 1},
-  {user_id: 5},
-  {user_id: 4}
+  {user_id: 1, title: "cows r cool"},
+  {user_id: 2, title: "first story ever!!1!"},
+  {user_id: 2, title: "the best story in the universe"},
+  {user_id: 3, title: "dbc is the best"},
+  {title: "adventure story", user_id: 1},
+  {title: "lions and tigers and dragons oh my", user_id: 5},
+  {title: "*phil voice*", user_id: 4}
 ]
 
 Story.create!(stories)
 
 
 sentences = [
-  {user_id: 2, story_id: 1, title: "cows r cool", text: "Once upon a time how now brown cow"},
-  {user_id: 2, story_id: 2, title: "first story ever!!1!", text: "Once upon a time boop de doop"},
-  {user_id: 3, story_id: 3, title: "the best story in the universe", text: "Once upon a time unique newyork"},
-  {user_id: 1, story_id: 4, title: "dbc is the best" text: "Once upon a time dbc is the dopeness"},
-  {user_id: 6, story_id: 5, title: "adventure story", text: "Once upon a time a princess peaced out of her castle"},
-  {user_id: 4, story_id: 6, title: "lions and tigers and dragons oh my", text: "Once upon a time a dragons took over the universe"},
-  {user_id: 1, story_id: 7, title: "*phil voice*", text: "Once upon a time *phil voice* salamanderz!"}
+  {user_id: 2, story_id: 1, text: "Once upon a time how now brown cow"},
+  {user_id: 2, story_id: 2, text: "Once upon a time boop de doop"},
+  {user_id: 3, story_id: 3, text: "Once upon a time unique newyork"},
+  {user_id: 1, story_id: 4, text: "Once upon a time dbc is the dopeness"},
+  {user_id: 6, story_id: 5, text: "Once upon a time a princess peaced out of her castle"},
+  {user_id: 4, story_id: 6, text: "Once upon a time a dragons took over the universe"},
+  {user_id: 1, story_id: 7, text: "Once upon a time *phil voice* salamanderz!"}
 ]
 
 Sentence.create!(sentences)
