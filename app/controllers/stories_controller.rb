@@ -19,7 +19,20 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
     @story.update(finished: true)
+  end
 
+  def index
+    stories_arr = []
+    if request.xhr?
+      if params[:list] == "MostPopular"
+        #needs to be updated when we put voting in
+        stories_arr = Story.all
+      elsif params[:list] == "MostRecentlyCompleted"
+        completed = Story.all.select { |story| story.finished }
+        stories_arr = completed.last.order.reverse.limit(10)
+      end
+      render json: stories_arr.as_json(include: :sentences)
+    end
   end
   # private
   # def story_params
