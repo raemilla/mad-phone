@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_many :notifications
   
->>>>>>> create migrations and models for Notifications
   def self.create_with_omniauth(auth)
     create! do |user|
       user.name = auth["info"]["name"]
