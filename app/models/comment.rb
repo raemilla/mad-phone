@@ -4,4 +4,5 @@ class Comment < ApplicationRecord
 
 	validates :user, presence: true
 	validates :story, presence: true
+	validates :text, presence: true
 end
