@@ -11,6 +11,11 @@
   });
 </script>
 
+<section>
+  <form><i type="submit" class="fa fa-thumbs-o-up" aria-hidden="true" name="upvote"></i></form>
+    <%= @story.sum %>
+  <form><i type="submit" class="fa fa-thumbs-o-down" aria-hidden="true" name="downvote"></i></form>
+</section>
 
 <% if current_user.id == @story.user_id %>
 <h2> Your story </h2>

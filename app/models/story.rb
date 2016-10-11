@@ -4,4 +4,8 @@ class Story < ApplicationRecord
   has_many :votes
 
   validates :user, presence: true
+
+  def sum
+    self.votes.reduce(0) { |sum, vote| sum + vote.value }
+  end
 end
