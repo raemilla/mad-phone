@@ -5,6 +5,7 @@ class Story < ApplicationRecord
 
   has_many :votes
   has_many :notifications
+  has_many :comments
 
 
   validates :user, presence: true
