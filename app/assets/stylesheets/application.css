@@ -73,3 +73,13 @@
   position: relative;
   left: 17px;
 }
+
+.additional-info {
+  font-size: 12px;
+  text-decoration: italic;
+  color: silver;
+}
+
+.thumb:hover {
+  color: red;
+}
