@@ -26,16 +26,15 @@ class StoriesController < ApplicationController
     if request.xhr?
       case params[:list]
       when "MostPopular"
-        #needs to be updated when we put voting in
-        stories_arr = Story.all.limit(10)
+        stories_arr = Story.all.sort { |a,b| b.sum <=> a.sum }
       when "MostRecentlyCompleted"
         stories = Story.all.order("updated_at").reverse
         stories_arr = stories.select { |story| story.finished }
-        stories_arr = stories_arr[0..10]
       when "MostRecentlyUpdated"
-        stories_arr = Story.all.order("updated_at").reverse[0..10]
+        stories_arr = Story.all.order("updated_at").reverse
       end
-      render json: stories_arr.as_json(include: :user)
+      stories_arr = stories_arr[0..10]
+      render json: stories_arr.as_json(methods: :sum, include: :user)
     end
   end
   # private
