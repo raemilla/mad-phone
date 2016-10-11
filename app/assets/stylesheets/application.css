@@ -53,3 +53,13 @@
 .new_story_header {
   margin-bottom: 30px;
 }
+
+.uncomplete-story {
+  color: transparent;
+  text-shadow: 1px 1px 10px black;
+}
+
+.sentence-add {
+  text-shadow: none;
+  color: black;
+}

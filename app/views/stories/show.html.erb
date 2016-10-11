@@ -6,7 +6,7 @@
     $('#my_form').on('submit',function(){
       var response = $('textarea').val()
       $('#my_form').hide();
-      $('.sentence-add').after(response)
+      $('.sentence-add').append(response)
     });
   });
 </script>
@@ -22,17 +22,24 @@
   <% unless @story.finished %>
     <form class="mark-done" action="/stories/<%=@story.id%>" method="POST">
        <input type="hidden" name="_method" value="PUT"/>
-       <input type="submit" name="finished?" value="Mark story as complete"/>
+       <input class="btn btn-primary" type="submit" name="finished?" value="Mark story as complete"/>
     </form>
   <%end %>
 <% elsif @story.finished == false %>
-  <p class="sentence-add"> <%=@story.sentences.last.text %> </p>
+  <div class="uncomplete-story">
+    <% @story.sentences.each do |sentence|%>
+      <% unless sentence == @story.sentences.last %>
+        <%= sentence.text %>
+      <% end %>
+    <% end %>
+  <span class="sentence-add"> <%=@story.sentences.last.text %> </span>
+  </div>
   <% unless @story.sentences.last.user_id == current_user.id %>
     <%= form_tag "/sentences", :id => "my_form" do -%>
       <%= hidden_field_tag :story_id, @story.id %>
-      <%= text_area_tag "sentence"%>
-      <%= submit_tag "Submit" %>
-    <% end -%>
+      <textarea class="form-control" name="sentence"></textarea>
+      <%= submit_tag "Submit", :class => "btn btn-primary" %>
+    <% end %>
   <% end %>
 <% else %>
   <p>
@@ -41,4 +48,3 @@
     <%end%>
   </p>
 <%end%>
-
