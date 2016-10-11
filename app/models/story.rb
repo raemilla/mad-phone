@@ -1,7 +1,10 @@
 class Story < ApplicationRecord
   belongs_to :user
   has_many :sentences
+
   has_many :votes
+  has_many :notifications
+
 
   validates :user, presence: true
 
