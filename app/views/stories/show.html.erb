@@ -77,4 +77,23 @@
       </p>
     <%end%>
   </div>
+  <div class="comments">
+    <div class="comments-list">
+     <h5>Comments:</h5>
+     <% @story.comments.each do |comment| %>
+       <%= comment.text %>
+       <% if comment.user == current_user %><br>
+       <button id="delete-comment" class="btn btn-primary"> delete</button><br>
+       <button id="edit-comment" class="btn btn-primary"> edit </button><br>
+       <%end%>
+     <%end %>
+    </div>
+    <div class = "new-comment">
+      <%= form_tag "/comments", :id => "add-comment" do -%>
+      <%= hidden_field_tag :story_id, @story.id%>
+      <textarea class="form-control" name="comment"></textarea>
+      <%= submit_tag "Add Comment", :class=> "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>

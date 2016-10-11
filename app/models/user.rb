@@ -1,9 +1,8 @@
 class User < ApplicationRecord
   has_many :sentences
   has_many :stories
-
+  has_many :comments
   has_many :votes
-
   has_many :notifications
   
   def self.create_with_omniauth(auth)

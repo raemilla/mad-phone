@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :stories
   resources :users
   resources :votes, only: :create
+  resources :notifications
+  resources :comments
 
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy"
