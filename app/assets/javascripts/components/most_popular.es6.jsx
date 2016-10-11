@@ -11,7 +11,6 @@ class MostPopular extends React.Component {
       method: 'GET',
       data: { list: "MostPopular" }
     }).done((response) => {
-      debugger
       this.setState({
         stories: response
       })
@@ -20,7 +19,15 @@ class MostPopular extends React.Component {
 
   render () {
     return (
-      <div>MP</div>
+      <div>
+      <ul>
+        {
+          this.state.stories.map((story ,i) => {
+            return (<ShowStory key={i} data={story} />)
+          })
+        }
+        </ul>
+      </div>
       )
   }
 }

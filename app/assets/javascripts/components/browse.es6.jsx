@@ -30,9 +30,9 @@ class Browse extends React.Component {
      }
     return (
       <div>
-      <span onClick={this.clickMostPopular}>Top 10</span>
-      <span onClick={this.clickMostRecentlyCompleted}>Recently Completed</span>
-      <span onClick={this.clickMostRecentlyUpdated}>Recently Updated</span>
+      <span onClick={this.clickMostPopular}>Top 10 </span>
+      <span onClick={this.clickMostRecentlyCompleted}>Recently Completed </span>
+      <span onClick={this.clickMostRecentlyUpdated}>Recently Updated </span>
       <span>{show}</span>
       </div>
       )
