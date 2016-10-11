@@ -6,7 +6,7 @@
         <div class="caption">
           <h5><%= @user.name %></h5>
           <p>Born in Little Rock, Arkansas, I love to write books and host tea parties, and I like zebras and penguins.</p>
-          <p><a href="#" class="btn btn-primary" role="button">Join a story</a> <a href="#" class="btn btn-primary" role="button">Start a story</a></p>
+          <p><a href="#" class="btn btn-primary" role="button">Join a story</a> <a href="/stories/new" class="btn btn-primary" role="button">Start a story</a></p>
         </div>
       </div>
     </div>
@@ -25,6 +25,14 @@
         <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
         <% end %>
       </div>
+    </div>
+    <div class = "notifications">
+        <h5> Notifications </h5>
+        <% @user.notifications.each do |notification| %>
+        <ul>
+        <a href="/stories/<%=notification.story.id%>"> <%=notification.text%> </a>
+        <% end %>
+        </ul>
     </div>
   </div>
 </div>

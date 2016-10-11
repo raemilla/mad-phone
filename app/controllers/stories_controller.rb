@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-
+  include StoriesHelper
   def new
     @words = ["pigs", "hats", "cats", "bowling balls", "princesses", "basketball", "baseball", "sweater vests", "Nickelback", "dev bootcamp", "New York City", "computers", "puppies", "carpets", "beards", "Bernie Sanders", "ballerinas", "dinosaurs", "aliens"]
   end
@@ -19,7 +19,10 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
     @story.update(finished: true)
+    send_notifications
+    # above can be found in stories helper
   end
+
 
   def index
     stories_arr = []
