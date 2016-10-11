@@ -63,3 +63,13 @@
   text-shadow: none;
   color: black;
 }
+
+.vote-btn {
+  background: none !important;
+  border: none !important;
+}
+
+.vote-total {
+  position: relative;
+  left: 17px;
+}
