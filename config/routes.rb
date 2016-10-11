@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: "static#index"
   resources :sentences
   resources :stories
+  resources :users
 
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy"

@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+.navbar {
+  margin-bottom: 50px;
+}
 
 .user-nav {
   position: relative;
@@ -39,4 +42,24 @@
 .thumbnail {
   border: 1px solid lightgray;
   padding: 10px;
+}
+
+
+.sentence-header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.new_story_header {
+  margin-bottom: 30px;
+}
+
+.uncomplete-story {
+  color: transparent;
+  text-shadow: 1px 1px 10px black;
+}
+
+.sentence-add {
+  text-shadow: none;
+  color: black;
 }

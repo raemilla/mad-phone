@@ -12,7 +12,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <%= javascript_include_tag 'application' %>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+
+    <script src="https://use.fontawesome.com/d0a6f7e1c7.js"></script>
   </head>
 
   <body>
@@ -22,7 +25,7 @@
       </ul>
       <% if current_user %>
       <ul class="nav navbar-nav user-nav">
-        <li class="nav-item"><a class="nav-link"><%= current_user.name %></a></li>
+        <li class="nav-item"><a class="nav-link" href="/users/<%= current_user.id %>"><%= current_user.name %></a></li>
         <li class="nav-item"><a class="nav-link">Browse</a></li>
         <li class="nav-item"><a class="nav-link" href="/sentences/new" >Contribute</a></li>
         <li class="nav-item"><a class="nav-link" href="/stories/new">Create</a></li>
