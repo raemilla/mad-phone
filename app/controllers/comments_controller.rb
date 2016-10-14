@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+before_filter :require_user
 def create
 	@comment = Comment.new(user_id: current_user.id, text: params[:comment],story_id: params[:story_id])
   if @comment.save
