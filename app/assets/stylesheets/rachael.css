@@ -64,3 +64,20 @@
 body {
   font-family: "Open Sans" !important;
 }
+
+.new-story-page {
+  margin-top: 150px;
+}
+
+.jumbotron {
+  margin-top: 70px;
+}
+
+.how-it-works {
+  background-color: #f7f7f9 !important;
+  padding: 10px;
+}
+
+.work-text {
+  font-size: 12px;
+}
