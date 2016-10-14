@@ -1,46 +1,58 @@
-<div class="container user-profile">
+<div class="container">
   <div class="row">
+
     <div class="col-xs-4 col-md-4">
       <div class="thumbnail">
         <img src="http://graph.facebook.com/<%= @user.uid %>/picture?type=large" />
         <div class="caption">
           <h5><%= @user.name %></h5>
           <p>Born in Little Rock, Arkansas, I love to write books and host tea parties, and I like zebras and penguins.</p>
-          <p><a href="/sentences/new" class="btn btn-primary" role="button">Join a story</a> <a href="/stories/new" class="btn btn-primary" role="button">Start a story</a></p>
+          <p><a href="#" class="btn btn-primary" role="button">Join a story</a> <a href="/stories/new" class="btn btn-primary" role="button">Start a story</a></p>
         </div>
       </div>
     </div>
+
     <div class="col-xs-12 col-md-8">
-      <div class="container">
-        <h5>My stories — In Progress </h5>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>My Stories<span class="label label-default">in process</span></h3>
+        </div>
         <div class="list-group">
           <% @user.stories.where(finished: false).each do |story| %>
-          <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
+            <button type="button" class="list-group-item" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></button>
           <% end %>
         </div>
       </div>
-      <div class="container">
-        <h5>My stories — Complete </h5>
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">My Stories: complete</h3></div>
         <div class="list-group">
           <% @user.stories.where(finished: true).each do |story| %>
-          <a class="list-group-item btn-block" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
+            <a class="list-group-item" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
           <% end %>
         </div>
-        <h5>Stories - Contributed to</h5>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Stories: contributed to</h3>
+        </div>
         <div class="list-group">
           <% @user.sentences.each do |sentence| %>
-          <a class="list-group-item btn-block" href="/sentences/<%=sentence.id%>"><%= sentence.text %></a>
+            <a class="list-group-item" href="/sentences/<%=sentence.id%>"><%= sentence.text %></a>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Notifications</h3>
+        </div>
+        <div class="list-group">
+          <% @user.notifications.each do |notification| %>
+            <a class="list-group-item" href="/stories/<%=notification.story.id%>"> <%=notification.text%></a>
           <% end %>
         </div>
       </div>
     </div>
-    <div class = "notifications">
-        <h5> Notifications </h5>
-        <% @user.notifications.each do |notification| %>
-        <ul>
-        <a href="/stories/<%=notification.story.id%>"> <%=notification.text%> </a>
-        <% end %>
-        </ul>
-    </div>
-  </div>
 </div>
