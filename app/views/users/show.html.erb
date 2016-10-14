@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-md-4">
       <div class="thumbnail">
-        <%= image_tag("jane-austen.jpg") %>
+        <img src="http://graph.facebook.com/<%= @user.uid %>/picture?type=large" />
         <div class="caption">
           <h5><%= @user.name %></h5>
           <p>Born in Little Rock, Arkansas, I love to write books and host tea parties, and I like zebras and penguins.</p>
-          <p><a href="#" class="btn btn-primary" role="button">Join a story</a> <a href="/stories/new" class="btn btn-primary" role="button">Start a story</a></p>
+          <p><a href="/sentences/new" class="btn btn-primary" role="button">Join a story</a> <a href="/stories/new" class="btn btn-primary" role="button">Start a story</a></p>
         </div>
       </div>
     </div>
