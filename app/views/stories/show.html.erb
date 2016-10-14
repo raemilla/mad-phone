@@ -29,7 +29,8 @@
       }).done(function(response){
         $('.comments-list').append("<li>"+response.text+
           "</li>")
-        $('#add-comment').remove()
+        $($('#add-comment').children()[3]).val("")
+        // $('#add-comment').remove()
       })
     });
   });
