@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = [
-  {name: "Harry Potter", provider: "fb", uid: "lalala", token: "lalala"},
+  {name: "Harry Potter", provider: "fb", uid: "lalala", token: "lalala", description: "I'm the boy who lived"},
   {name: "Judy Garland", provider: "fb", uid: "lalala", token: "lalala"},
-  {name: "Lorelai Gilmore", provider: "fb", uid: "lalala", token: "lalala"},
-  {name: "Rachel Greene", provider: "fb", uid: "lalala", token: "lalala"},
-  {name: "Michael Scott", provider: "fb", uid: "lalala", token: "lalala"},
-  {name: "Deadpool", provider: "fb", uid: "lalala", token: "lalala"},
-  {name: "Oliver Queen", provider: "fb", uid: "lalala", token: "lalala"}
+  {name: "Lorelai Gilmore", provider: "fb", uid: "lalala", token: "lalala", description: "I love coffee and I'm hilarious"},
+  {name: "Rachel Greene", provider: "fb", uid: "lalala", token: "lalala", description: "We were NOT on a break"},
+  {name: "Michael Scott", provider: "fb", uid: "lalala", token: "lalala", description: "thats what she said"},
+  {name: "Deadpool", provider: "fb", uid: "lalala", token: "lalala", description: "chimichongas"},
+  {name: "Oliver Queen", provider: "fb", uid: "lalala", token: "lalala", description: "I have failed this city"}
 ]
 
 User.create!(users)
@@ -52,5 +52,3 @@ story.save
 Story.first.contributors.each do |contributor|
   Notification.create!(user_id: contributor.id, story_id: 1, text: "cows r cool has been completed! go check it out!")
 end
-
-
