@@ -2,7 +2,8 @@ class NewSentence extends React.Component {
   constructor () {
     super ()
     this.state = {
-      sentence: []
+      sentence: [],
+      errors: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -26,8 +27,14 @@ class NewSentence extends React.Component {
     }).done((response) =>{
       this.getNewSentence()
       textfield.value =""
-    }
-    )
+      this.setState({
+        errors: false
+      })
+    }).fail((error) => {
+      this.setState({
+        errors: true
+      })
+    })
   }
 
   getNewSentence() {
@@ -66,6 +73,12 @@ class NewSentence extends React.Component {
     return (
       <div>
       {sentenceWaiter}
+      {this.state.errors ? <div className="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Uh oh!</strong> You can only write one sentence at a time.
+      </div> : null}
       </div>
     )
   }
