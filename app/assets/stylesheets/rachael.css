@@ -52,3 +52,15 @@
   left: 900px;
   bottom: 55px;
 }
+
+.sentence-header {
+  font-family: "Libre Franklin";
+}
+
+.header{
+  font-family: "Libre Franklin";
+}
+
+body {
+  font-family: "Open Sans" !important;
+}

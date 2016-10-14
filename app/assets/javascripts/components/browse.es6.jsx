@@ -44,9 +44,9 @@ class Browse extends React.Component {
       <div>
         <div className="container">
           <ul className="nav nav-tabs">
-            <li className="nav-item" onClick={this.clickMostPopular}><a className={MostPopularclasses}>Top 10</a></li>
-            <li className="nav-item" onClick={this.clickMostRecentlyCompleted}><a className={MostRecentlyCompletedClasses}>Recently Completed </a></li>
-            <li className="nav-item" onClick={this.clickMostRecentlyUpdated}><a className={MostRecentlyUpdatedClasses}>Recently Updated </a></li>
+            <li className="nav-item header" onClick={this.clickMostPopular}><a className={MostPopularclasses}>Top 10</a></li>
+            <li className="nav-item header" onClick={this.clickMostRecentlyCompleted}><a className={MostRecentlyCompletedClasses}>Recently Completed </a></li>
+            <li className="nav-item header" onClick={this.clickMostRecentlyUpdated}><a className={MostRecentlyUpdatedClasses}>Recently Updated </a></li>
           </ul>
         </div>
       <span>{show}</span>
@@ -54,4 +54,3 @@ class Browse extends React.Component {
       )
   }
 }
-
