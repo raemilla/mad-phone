@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
   include StoriesHelper
-  before_filter :require_user
+  before_action :require_user
   def index
 
     stories_arr = []

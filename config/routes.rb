@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'homes/show'
 
   get 'users/new'
   get 'users/show'
