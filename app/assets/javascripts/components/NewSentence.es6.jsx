@@ -51,13 +51,13 @@ class NewSentence extends React.Component {
   render () {
     let sentenceWaiter
     if (this.state.sentence.text) {
-      sentenceWaiter = <div>
+      sentenceWaiter = <div className="contribute-sentence-page">
 
-      <p className="sentence-header">" {this.state.sentence.text} "</p>
+      <p className="sentence-header">"{this.state.sentence.text}"</p>
 
-      <form onSubmit={this.handleSubmit}>
+      <form className="new-contribute-form form-inline" onSubmit={this.handleSubmit}>
         <div className="form-group">
-        <textarea className="form-control" placeholder="continue the story" ref="sentence" name="sentence"></textarea>
+        <input className="form-control" id="add-sentence-text" placeholder="continue the story" ref="sentence" name="sentence"/>
         </div>
         <input className="btn btn-primary" type="submit"/>
       </form>

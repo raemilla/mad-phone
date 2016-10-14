@@ -25,7 +25,7 @@
     <div class="col-sm-6 col-md-8">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>Stories in Progress</h4>
+          <h4 class="header">Stories in Progress</h4>
         </div>
         <div class="list-group">
           <% @user.stories.where(finished: false).each do |story| %>
@@ -36,7 +36,7 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title">Stories Completed</h4>
+          <h4 class="panel-title header">Stories Completed</h4>
         </div>
         <div class="list-group">
           <% @user.stories.where(finished: true).each do |story| %>
@@ -47,7 +47,7 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title">Stories contributed to</h4>
+          <h4 class="panel-title header">Stories contributed to</h4>
         </div>
         <div class="list-group">
           <% @user.stories.where(finished: false).each do |story| %>
@@ -59,7 +59,7 @@
       <% if current_user == @user %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 class="panel-title">Notifications</h4>
+            <h4 class="panel-title header">Notifications</h4>
           </div>
           <div class="list-group">
             <% @user.notifications.each do |notification| %>
