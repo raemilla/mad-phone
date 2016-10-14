@@ -10,13 +10,27 @@
 <div class="jumbotron">
   <h1 class="header">Welcome to MadPhone!</h1>
   <p>The app that lets you create a story sentence by sentence. Feel free to contribute, create your own, and read some wacky tales!</p>
+  <br>
+  <div class="how-it-works">
+    <h5>How it Works</h5>
+    <p class="work-text">MadPhone thrives on collaboration. To make it interesting, we only show you <strong>one</strong> previous sentence for you reply to, and you can't see an entire story until the creator unlocks it. Think of it as a silly combination between madlibs and telephone.<br><br>
+    Start contributing today in a number of easy steps:<br>
+    <strong>Create</strong> a story on our creation page. Don't worry if you don't know what to write about - we give you suggestions.<br>
+    <strong>Contribute</strong> to a story by adding a sentence to a random story on our contribution page. Alternatively, you can contribute to a specific story while you are viewing an incomplete story.<br>
+    <strong>Browse</strong> through recently created stories to find one you want to contribute to, or read, vote, and comment on completed stories.<br><br>
+
+    And that's all you need to know! Be sure to make your sentences count - you can't submit another one until someone else adds a sentence after yours.
+    </p>
+  </div>
+  <br>
   <% if current_user %>
     Signed in as <strong><%= current_user.name %></strong>!
     <%= link_to "Sign out", signout_path, id: "sign_out" %>
   <% else %>
-  <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  Want to join in on the fun? <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
+
 </div>
 <%= yield %>
 
