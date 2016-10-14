@@ -58,7 +58,7 @@
 }
 
 .header{
-  font-family: "Libre Franklin";
+  font-family: "Libre Franklin" !important;
 }
 
 body {
