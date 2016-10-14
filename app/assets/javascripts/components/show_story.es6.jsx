@@ -7,12 +7,13 @@ class ShowStory extends React.Component {
       cdate = (new Date(cts)).toLocaleString();
     return (
       <div className="container">
-      <div className="jumbotron">
+      <br></br>
+      <div className="well">
           <div className="media-left">
             <div><h2>{data.sum}</h2></div>
           </div>
           <div className="media-body">
-            <p className="media-heading"><a href={storyLink}>{data.title}</a></p>
+            <h3 className="media-heading"><a href={storyLink}>{data.title}</a></h3>
             <p className="additional-info">created by <a href={userLink}>{data.user.name}</a> on {cdate}</p>
           </div>
           </div>

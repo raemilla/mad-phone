@@ -91,3 +91,9 @@
 .thumb:hover {
   color: red;
 }
+
+.well {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #f7f7f9;
+}
