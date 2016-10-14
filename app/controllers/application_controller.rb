@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   include SentencesHelper
-
+  include SessionsHelper
   private
 
   def current_user
