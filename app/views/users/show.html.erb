@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container user-profile">
   <div class="row">
 
     <div class="col-sm-6 col-md-4">
@@ -29,7 +29,7 @@
         </div>
         <div class="list-group">
           <% @user.stories.where(finished: false).each do |story| %>
-            <button type="button" class="list-group-item" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></button>
+            <a class="list-group-item" href="/stories/<%=story.id%>"><%= story.sentences.first.text %></a>
           <% end %>
         </div>
       </div>
@@ -50,7 +50,7 @@
           <h4 class="panel-title header">Stories contributed to</h4>
         </div>
         <div class="list-group">
-          <% @user.stories.where(finished: false).each do |story| %>
+          <% @contributed_to.each do |story| %>
             <a class="list-group-item" href="/stories/<%=story.id%>"><%= story.title %></a>
           <% end %>
         </div>
