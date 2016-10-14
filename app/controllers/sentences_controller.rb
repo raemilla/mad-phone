@@ -12,6 +12,7 @@ def create
     text = params[:sentence]
     @sentence = Sentence.new(user_id: current_user.id, text: text, story_id: params[:story_id])
     @sentence.save
+    @sentence.story.update(updated_at: DateTime.now)
   elsif params[:sentence].count('.') > 1
     if request.xhr?
       raise ActionController::RoutingError.new('Not Found')
@@ -23,6 +24,7 @@ def create
     text = params[:sentence] + "."
     @sentence = Sentence.new(user_id: current_user.id, text: text, story_id: params[:story_id])
     @sentence.save
+    @sentence.story.update(updated_at: DateTime.now)
   end
 end
 
