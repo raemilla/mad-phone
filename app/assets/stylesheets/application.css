@@ -43,8 +43,15 @@
 .thumbnail {
   border: 1px solid lightgray;
   padding: 10px;
+  text-align:center;
+  border-radius: 5px;
 }
 
+.thumbnail > li {
+    display: inline-block;
+    *display:inline; /* ie7 fix */
+    float: none; /* this is the part that makes it work */
+}
 
 .sentence-header {
   text-align: center;
