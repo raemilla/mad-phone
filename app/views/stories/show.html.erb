@@ -84,6 +84,15 @@
           <%= hidden_field_tag :story_id, @story.id %>
           <textarea class="form-control" name="sentence" placeholder="add a sentence"></textarea>
           <%= submit_tag "Submit", :class => "btn btn-primary" %>
+
+          <% if flash[:alert] %>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Uh oh!</strong> You can only write one sentence at a time.
+          </div>
+          <% end %>
         <% end %>
       <% end %>
     <% else %>

@@ -55,12 +55,13 @@ ActiveRecord::Schema.define(version: 20161011192558) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
-    t.string   "token",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.string   "provider",    null: false
+    t.text     "description"
+    t.string   "uid",         null: false
+    t.string   "token",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "votes", force: :cascade do |t|
