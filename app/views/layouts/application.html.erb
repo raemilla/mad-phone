@@ -7,19 +7,20 @@
     <title>MadPhone</title>
     <!-- <%= csrf_meta_tags %> -->
     <meta property="og:url"           content="http://www.localhost:3000" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Your Website Title" />
-  <meta property="og:description"   content="Your description" />
-  <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" %>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
-
-    <script src="https://use.fontawesome.com/d0a6f7e1c7.js"></script>
+    <%= javascript_include_tag "https://use.fontawesome.com/d0a6f7e1c7.js" %>
   </head>
 
   <body>
@@ -36,6 +37,21 @@
         <li class="nav-item"><a class="nav-link" href="/signout">Sign out</a></li>
       </ul>
       <% end %>
+
+    <!-- <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="nav-item navbar-brand">MadPhone</div>
+          <% if current_user %>
+          <ul class="nav navbar-nav" style="float: right">
+            <li class="nav-item"><a class="nav-link" href="/users/<%= current_user.id %>"><%= current_user.name %></a></li>
+            <li class="nav-item"><a class="nav-link" href="/stories">Browse</a></li>
+            <li class="nav-item"><a class="nav-link" href="/sentences/new" >Contribute</a></li>
+            <li class="nav-item"><a class="nav-link" href="/stories/new">Create</a></li>
+          </ul>
+          <% end %>
+        </div>
+      </div> -->
+
     </nav>
     <div class="container">
     <%= yield %>
