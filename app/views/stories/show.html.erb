@@ -29,11 +29,13 @@
       }).done(function(response){
         $('.comments-list').append("<li>"+response.text+
           "</li>")
-        $('#add-comment').remove()
+        $($('#add-comment').children()[3]).val("")
+        // $('#add-comment').remove()
       })
     });
   });
 </script>
+
 
 <div class="row">
   <div class="col-md-1">
@@ -82,6 +84,15 @@
           <%= hidden_field_tag :story_id, @story.id %>
           <textarea class="form-control" name="sentence" placeholder="add a sentence"></textarea>
           <%= submit_tag "Submit", :class => "btn btn-primary" %>
+
+          <% if flash[:alert] %>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Uh oh!</strong> You can only write one sentence at a time.
+          </div>
+          <% end %>
         <% end %>
       <% end %>
     <% else %>
@@ -108,3 +119,18 @@
     </div>
   </div>
 </div>
+
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=646163268824501";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+   <div class="fb-share-button" data-href="http://www.localhost:3000" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.localhost%3A3000%2F&amp;src=sdkpreparse">Share</a></div>
+<br><br>
+<%= social_share_button_tag(@story.title) %>
+

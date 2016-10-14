@@ -2,6 +2,10 @@
 
 <%= react_component('NewSentence')%>
 
-<% if flash[:alert] %>
+<% if flash[:alert] == "You may only write one sentence at a time." %>
+  <div class="alert alert-danger alert-sm alert-dismissible" role="alert">
+    <strong>Uh oh!</strong> You can only write one sentence at a time.
+  </div>
+<% else %>
   <%= flash[:alert] %>
 <% end %>
