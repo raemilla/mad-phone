@@ -1,16 +1,19 @@
 
 <div class="container new-story">
 
-<h3 class="new_story_header">start a story about <%= @words.sample %></h3>
+<h3 class="new_story_header">start a story</h3>
+<div class="new-story-group">
+  <span class="additional-info">Need inspiration? Write a story about <%= @words.sample %></span><br>
 
-  <form method="post" action="/stories">
+  <form class="new-story-form" method="post" action="/stories">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="add a title" name="title">
+      <input id="add-a-title" type="text" class="form-control" placeholder="add a title" name="title">
     </div>
     <div class="form-group">
       <label>Once upon a time...</label>
-      <input type="text" class="form-control" placeholder="write your sentence here" name="first_sentence">
+      <input id="first-sentence-text" type="text" class="form-control" placeholder="write your sentence here" name="first_sentence">
     </div>
-    <button type="submit" class="btn btn-primary">create</button>
+    <button id="submit-story-button" type="submit" class="btn btn-primary">create</button>
   </form>
+  </div>
 </div>

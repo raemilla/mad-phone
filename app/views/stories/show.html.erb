@@ -27,8 +27,8 @@
         url: "/comments",
         data: {comment: $('#new-comment-data').val(), story_id: $(event.target).children()[2].value}
       }).done(function(response){
-        $('.comments-list').append("<li>"+response.text+
-          "</li>")
+        $('.table').append("<tr><td>"+response.text+
+          "</tr></td>")
         $($('#add-comment').children()[3]).val("")
         // $('#add-comment').remove()
       })
@@ -80,9 +80,9 @@
           <span class="sentence-add"> <%=@story.sentences.last.text %> </span>
         </div>
         <% unless @story.sentences.last.user_id == current_user.id %>
-          <%= form_tag "/sentences", :id => "my_form", :class => "form-inline" do -%>
+          <%= form_tag "/sentences", :id => "my_form", :class => "form-inline show-add-sentence-form" do -%>
           <%= hidden_field_tag :story_id, @story.id %>
-          <textarea class="form-control" name="sentence" placeholder="add a sentence"></textarea>
+          <input class="form-control" name="sentence" placeholder="add a sentence">
           <%= submit_tag "Submit", :class => "btn btn-primary" %>
 
           <% if flash[:alert] %>
@@ -102,18 +102,32 @@
         <%end%>
       </p>
     <%end%>
+    <br><br>
+    <div class="share">
+      <div class="fb-share-button" data-href="http://www.localhost:3000" data-layout="button" data-size="small" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.localhost%3A3000%2F&amp;src=sdkpreparse"></a>
+    </div>
+    <div class="tweet-share"><%= social_share_button_tag(@story.title) %></div>
+    </div>
   </div>
+
   <div class="comments-container col-md-3">
     <div class="comments-list">
      <h5>Comments:</h5>
-     <% @story.comments.each do |comment| %>
-       <li><%= comment.text %></li>
-     <%end %>
+     <table class="table table-striped">
+       <tbody>
+        <% @story.comments.each do |comment| %>
+          <tr><td><%= comment.text %><br/>
+          <span class="additional-info">created by <a href="/users/<%= comment.user.id%>"><%=comment.user.name %></a> on <%=comment.created_at%></span></td></tr>
+        <%end %>
+      </tbody>
+    </table>
     </div>
+
     <div class = "new-comment">
       <%= form_tag "/comments", :id => "add-comment" do -%>
       <%= hidden_field_tag :story_id, @story.id%>
-      <textarea class="form-control" id="new-comment-data" name="comment"></textarea>
+      <textarea class="form-control" id="new-comment-data" name="comment" placeholder="add a comment"></textarea>
       <%= submit_tag "Add Comment", :class=> "btn btn-primary" %>
       <% end %>
     </div>
@@ -126,11 +140,6 @@
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=646163268824501";
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1222641627807368";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
-
-   <div class="fb-share-button" data-href="http://www.localhost:3000" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.localhost%3A3000%2F&amp;src=sdkpreparse">Share</a></div>
-<br><br>
-<%= social_share_button_tag(@story.title) %>
-
