@@ -28,7 +28,7 @@ class StoriesController < ApplicationController
 
     user = current_user
     new_story = user.stories.create(title: params[:title])
-    new_story.sentences.create(text: "Once upon a time " + params[:first_sentence], user: user)
+    new_story.sentences.create(text: params[:first_sentence], user: user)
     flash[:alert] = "Story created successfully!"
     redirect_to new_sentence_path
   end
