@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
       when "MostRecentlyUpdated"
         stories_arr = Story.all.order("updated_at").reverse
       end
-      stories_arr = stories_arr[0..10]
+      stories_arr = stories_arr[0...10]
       render json: stories_arr.as_json(methods: :sum, include: :user)
     end
   end

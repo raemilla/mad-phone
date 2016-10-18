@@ -14,16 +14,24 @@
  *= require social-share-button
  *= require_self
  */
-.navbar {
-  margin-bottom: 50px;
+
+ .navbar {
+    margin-bottom: 50px;
+  }
+
+@media (max-width: 415px) {
+  .nav-item {
+    font-size: 50%;
+  }
 }
 
-.user-nav {
-  position: absolute;
-  right: 20px;
-/*  left: 740px;*/
+@media (min-width: 415px) {
+  .user-nav {
+    position: absolute;
+    right: 20px;
+  /*  left: 740px;*/
+  }
 }
-
 .new-story {
   padding-top: 80px;
 }
