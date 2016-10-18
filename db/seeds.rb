@@ -45,8 +45,47 @@ Sentence.create!(sentences)
 
 story = Story.find_by(id: 1)
 story.sentences.build(user_id: 3, text: "Meatloaf frankfurter tri-tip, tail fatback drumstick pig. Ham hock filet mignon doner swine, kielbasa alcatra flank cow capicola beef ribs beef brisket landjaeger corned beef. Jowl shank tail, sirloin doner tenderloin ball tip strip steak salami cow ribeye porchetta shankle capicola. Shankle landjaeger turducken chuck sausage, porchetta beef fatback short loin. Kielbasa cupim spare ribs, pork belly boudin shank picanha corned beef kevin. Ball tip doner pork chop jerky tongue short loin t-bone turkey ribeye pork belly. Chuck swine pork belly pork chop cow.")
-story.sentences.build(user_id: 6, text: "Helvetica retro chia woke, vaporware direct trade paleo waistcoat 8-bit sriracha hot chicken brooklyn occupy bespoke. Mlkshk gastropub prism, heirloom DIY before they sold out everyday carry next level freegan small batch put a bird on it sriracha bicycle rights. Pinterest church-key mustache viral, tofu scenester helvetica chia ramps fap hoodie tattooed. Jean shorts everyday carry af umami subway tile wayfarers church-key, celiac post-ironic flexitarian. Vice cronut butcher deep v ethical polaroid. Before they sold out marfa occupy, quinoa 90's seitan lomo intelligentsia shabby chic woke affogato. Beard blog flannel distillery synth, meh pug meggings.")
+story.sentences.build(user_id: 6, text: "Helvetica retro chia woke, vaporware direct trade paleo waistcoat 8-bit sriracha hot chicken brooklyn occupy bespoke. Mlkshk gastropub prism, heirloom DIY before they sold out everyday carry next level freegan small batch put a bird on it sriracha bicycle rights. Pinterest church-key mustache viral, tofu scenester helvetica chia ramps fap hoodie tattooed. Jean shorts everyday carry af umami subway tile wayfarers church-key, celiac post-ironic flexitarian. Vice cronut butcher deep v ethical polaroid. Before they sold out marfa occupy, quinoa 90's seitan lomo intelligentsia shabby chic woke affogato.")
+story.sentences.build(user_id: 4, text: "Beard blog flannel distillery synth, meh pug meggings.")
+story.votes.build(user_id: 1, value: 1)
+story.votes.build(user_id: 2, value: 1)
+story.votes.build(user_id: 3, value: 1)
+story.votes.build(user_id: 4, value: 1)
+story.votes.build(user_id: 5, value: 1)
 story.save
+
+story2 = Story.find_by(id: 2)
+story2.sentences.build(user_id: 3, text: "Helvetica retro chia woke, vaporware direct trade paleo waistcoat 8-bit sriracha hot chicken brooklyn occupy bespoke.")
+story2.sentences.build(user_id: 4, text: "Jean shorts everyday carry af umami subway tile wayfarers church-key, celiac post-ironic flexitarian.")
+story2.sentences.build(user_id: 5, text: "Kielbasa cupim spare ribs, pork belly boudin shank picanha corned beef kevin.")
+story2.sentences.build(user_id: 6, text: "Ham hock filet mignon doner swine, kielbasa alcatra flank cow capicola beef ribs beef brisket landjaeger corned beef.")
+story2.votes.build(user_id: 1, value: -1)
+story2.votes.build(user_id: 2, value: -1)
+story2.votes.build(user_id: 3, value: -1)
+story2.save
+
+story3 = Story.find_by(id: 3)
+story3.votes.build(user_id: 1, value: 1)
+story3.votes.build(user_id: 2, value: 1)
+story3.votes.build(user_id: 3, value: 1)
+story3.votes.build(user_id: 4, value: 1)
+story3.votes.build(user_id: 5, value: 1)
+story3.votes.build(user_id: 6, value: 1)
+story3.save
+
+story4 = Story.find_by(id: 4)
+story4.votes.build(user_id: 1, value: -1)
+story4.votes.build(user_id: 2, value: -1)
+story4.votes.build(user_id: 3, value: -1)
+story4.votes.build(user_id: 4, value: -1)
+story4.votes.build(user_id: 5, value: -1)
+story4.save
+
+story5 = Story.find_by(id: 5)
+story5.votes.build(user_id: 1, value: 1)
+story5.votes.build(user_id: 2, value: 1)
+story5.votes.build(user_id: 3, value: 1)
+story5.save
 
 
 Story.first.contributors.each do |contributor|
