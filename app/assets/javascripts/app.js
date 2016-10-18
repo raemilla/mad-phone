@@ -1,6 +1,8 @@
 $(document).ready(function(){
   $('.mark-done').on('click',function(){
+    $('.mark-done').after("<div class='alert alert-success'><a class='close' data-dismiss='alert' aria-label='close'>&times;</a>This story is complete. Feel free to share with your friends!</div>")
     $('.mark-done').hide();
+
   });
 
   $('#my_form').on('submit', function(){
