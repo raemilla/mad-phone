@@ -74,10 +74,14 @@ body {
 }
 
 .how-it-works {
-  background-color: #f7f7f9 !important;
+  background-color: white !important;
   padding: 10px;
 }
 
 .work-text {
   font-size: 12px;
+}
+
+.browse-tabs li:hover {
+  cursor: pointer;
 }
