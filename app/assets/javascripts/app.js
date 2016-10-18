@@ -27,7 +27,7 @@ $(document).ready(function(){
       url: "/comments",
       data: {comment: $('#new-comment-data').val(), story_id: $(event.target).children()[2].value}
     }).done(function(response){
-      // $('.table').append(`<tr><td>${response.text}<br/><span class='additional-info'>posted by <a href='/users/${response.user_id}'>${response.user.name}</a> on ${response.created_at}</span></tr></td>`)
+      $('.table').append(`<tr><td>${response.text}<br/><span class='additional-info'>posted by <a href='/users/${response.user_id}'>${response.user.name}</a> on ${response.created_at}</span></tr></td>`)
       $('#add-comment').children()[3]).val("")
     })
   });

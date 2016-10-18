@@ -88,7 +88,7 @@ body {
 
 .fb-share-button {
   position: relative;
-  bottom: 165px;
   left: 310px;
+  bottom: 20px;
   z-index: 1;
 }
