@@ -83,7 +83,7 @@
        <tbody>
         <% @story.comments.each do |comment| %>
           <tr><td><%= comment.text %><br/>
-          <span class="additional-info">created by <a href="/users/<%= comment.user.id%>"><%=comment.user.name %></a> on <%=comment.created_at%></span></td></tr>
+          <span class="additional-info">posted by <a href="/users/<%= comment.user.id%>"><%=comment.user.name %></a> on <%=comment.created_at%></span></td></tr>
         <%end %>
       </tbody>
     </table>
