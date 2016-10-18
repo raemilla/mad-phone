@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     # binding.pry
     @user = User.find_by(id: params[:id])
     @contributed_to = []
-    @user.contributed_stories.where(finished: false).each do |story|
+    @user.contributed_stories.each do |story|
       if story.sentences.first.user.id != @user.id
         @contributed_to << story
         # binding.pry

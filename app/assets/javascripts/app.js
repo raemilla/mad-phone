@@ -33,4 +33,16 @@ $(document).ready(function(){
       $('#add-comment').children("#new-comment-data").val("");
     });
   });
+
+  $('.delete-notification-form').on('submit', function(event){
+    event.preventDefault();
+    var notificationId = $('.delete-notification-id').val();
+    $.ajax({
+      method: 'delete',
+      url: '/notifications/'+notificationId,
+      data: $(event.target).serialize()
+    }).done(function(response){
+      $("."+notificationId).remove();
+    })
+  })
 });

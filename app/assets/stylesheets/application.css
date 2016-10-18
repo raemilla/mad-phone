@@ -134,3 +134,24 @@
   position: relative;
   bottom: 10px;
 }
+
+.delete-btn {
+  background-color: white !important;
+  border-color: white !important;
+  position: relative;
+  left: 590px;
+  bottom: 24px;
+}
+
+.delete-btn:hover {
+  background-color: white !important;
+  border-color: white !important;
+}
+
+.delete-notification:hover {
+  color: #26ced0;
+}
+
+.notification-text {
+  margin-bottom: -20px;
+}
