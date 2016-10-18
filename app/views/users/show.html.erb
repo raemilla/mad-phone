@@ -61,9 +61,15 @@
           <div class="panel-heading">
             <h4 class="panel-title header">Notifications</h4>
           </div>
-          <div class="list-group">
+          <div class="list-group notification-list">
             <% @user.notifications.each do |notification| %>
-              <a class="list-group-item" href="/stories/<%=notification.story.id%>"> <%=notification.text%></a>
+              <div class="<%= notification.id %>">
+              <a class="list-group-item notification-text" href="/stories/<%=notification.story.id%>"> <%=notification.text%></a>
+              <form class="delete-notification-form">
+                <input class="delete-notification-id" name="notification_id" type="hidden" value="<%= notification.id%>">
+                <button class="btn delete-btn" type="submit"><i class="fa fa-trash-o delete-notification" aria-hidden="true"></i></button>
+              </form>
+              </div>
             <% end %>
           </div>
         </div>
