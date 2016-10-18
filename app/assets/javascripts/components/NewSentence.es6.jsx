@@ -53,7 +53,8 @@ class NewSentence extends React.Component {
     if (this.state.sentence.text) {
       sentenceWaiter = <div className="contribute-sentence-page">
 
-      <p className="sentence-header">"{this.state.sentence.text}"</p>
+      <p className="sentence-header"><i className="fa fa-quote-left quote-mark" aria-hidden="true"></i>
+ {this.state.sentence.text} <i className="fa fa-quote-right quote-mark" aria-hidden="true"></i></p>
 
       <form className="new-contribute-form form-inline" onSubmit={this.handleSubmit}>
         <div className="form-group">
