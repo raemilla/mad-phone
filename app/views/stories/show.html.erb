@@ -1,3 +1,4 @@
+<head>
 <script>
   $(document).ready(function(){
     $('.mark-done').on('click',function(){
@@ -35,7 +36,8 @@
     });
   });
 </script>
-
+<meta property="og:description"          content="<%=@story.title%>" />
+</head>
 
 <div class="row">
   <div class="col-md-1">
@@ -104,8 +106,8 @@
     <%end%>
     <br><br>
     <div class="share">
-      <div class="fb-share-button" data-href="https://mad-phone.herokuapp.com/stories/<%=@story.id%>" data-layout="button" data-size="small" data-mobile-iframe="true" quote="<%=@story.title%>">
-        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmad-phone.herokuapp.com%3A3000%2F&amp;src=sdkpreparse" quote="<%=@story.title%>"></a>
+      <div class="fb-share-button" data-href="https://mad-phone.herokuapp.com/stories/<%=@story.id%>" data-layout="button" data-size="small" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmad-phone.herokuapp.com%3A3000%2F&amp;src=sdkpreparse"></a>
     </div>
   </div>
 
