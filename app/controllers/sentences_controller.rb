@@ -8,7 +8,7 @@ def index
 end
 
 def create
-  if params[:sentence].count('.') == 1
+  if params[:sentence].count('.') == 1 || params[:sentence].count('!') == 1 || params[:sentence].count('?') == 1
     text = params[:sentence]
     @sentence = Sentence.new(user_id: current_user.id, text: text, story_id: params[:story_id])
     @sentence.save
