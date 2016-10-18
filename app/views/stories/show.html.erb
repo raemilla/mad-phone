@@ -22,7 +22,7 @@
 
   <div class="col-md-8">
     <h2> <%= @story.title %> </h2>
-    <span class="additional-info story-show-info">created by <a href="/users/<%= @story.user.id%>"><%=@story.user.name %></a> on <%=@story.created_at%> <div class="share">
+    <span class="additional-info story-show-info">created by <a href="/users/<%= @story.user.id%>"><%=@story.user.name %></a> on <%=@story.created_at.in_time_zone("EST").strftime("%m/%d/%y at %H:%M %P")%> <div class="share">
       <div class="fb-share-button" data-href="https://mad-phone.herokuapp.com/stories/<%=@story.id%>" data-layout="button" data-size="small" data-mobile-iframe="true">
         <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmad-phone.herokuapp.com%3A3000%2F&amp;src=sdkpreparse"></a>
       </div>
@@ -83,7 +83,7 @@
        <tbody>
         <% @story.comments.each do |comment| %>
           <tr><td><%= comment.text %><br/>
-          <span class="additional-info">posted by <a href="/users/<%= comment.user.id%>"><%=comment.user.name %></a> on <%=comment.created_at%></span></td></tr>
+          <span class="additional-info">posted by <a href="/users/<%= comment.user.id%>"><%=comment.user.name %></a> on <%=comment.created_at.in_time_zone("EST").strftime("%m/%d/%y at %H:%M %P")%></span></td></tr>
         <%end %>
       </tbody>
     </table>
