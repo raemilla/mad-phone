@@ -43,7 +43,7 @@ class Browse extends React.Component {
     return (
       <div>
         <div className="container">
-          <ul className="nav nav-tabs">
+          <ul className="nav nav-tabs browse-tabs">
             <li className="nav-item header" onClick={this.clickMostPopular}><a className={MostPopularclasses}>Top 10</a></li>
             <li className="nav-item header" onClick={this.clickMostRecentlyCompleted}><a className={MostRecentlyCompletedClasses}>Recently Completed </a></li>
             <li className="nav-item header" onClick={this.clickMostRecentlyUpdated}><a className={MostRecentlyUpdatedClasses}>Recently Updated </a></li>

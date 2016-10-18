@@ -32,13 +32,13 @@ Story.create!(stories)
 
 
 sentences = [
-  {user_id: 2, story_id: 1, text: "Once upon a time how now brown cow"},
+  {user_id: 1, story_id: 1, text: "Once upon a time how now brown cow"},
   {user_id: 2, story_id: 2, text: "Once upon a time boop de doop"},
-  {user_id: 3, story_id: 3, text: "Once upon a time unique newyork"},
-  {user_id: 1, story_id: 4, text: "Once upon a time dbc is the dopeness"},
-  {user_id: 6, story_id: 5, text: "Once upon a time a princess peaced out of her castle"},
-  {user_id: 4, story_id: 6, text: "Once upon a time a dragons took over the universe"},
-  {user_id: 1, story_id: 7, text: "Once upon a time *phil voice* salamanderz!"}
+  {user_id: 2, story_id: 3, text: "Once upon a time unique newyork"},
+  {user_id: 3, story_id: 4, text: "Once upon a time dbc is the dopeness"},
+  {user_id: 1, story_id: 5, text: "Once upon a time a princess peaced out of her castle"},
+  {user_id: 5, story_id: 6, text: "Once upon a time a dragons took over the universe"},
+  {user_id: 4, story_id: 7, text: "Once upon a time *phil voice* salamanderz!"}
 ]
 
 Sentence.create!(sentences)
@@ -62,6 +62,7 @@ story2.sentences.build(user_id: 6, text: "Ham hock filet mignon doner swine, kie
 story2.votes.build(user_id: 1, value: -1)
 story2.votes.build(user_id: 2, value: -1)
 story2.votes.build(user_id: 3, value: -1)
+story2.update_attribute("finished", true)
 story2.save
 
 story3 = Story.find_by(id: 3)
@@ -86,6 +87,19 @@ story5.votes.build(user_id: 1, value: 1)
 story5.votes.build(user_id: 2, value: 1)
 story5.votes.build(user_id: 3, value: 1)
 story5.save
+
+comments = [
+  {story_id: 1, user_id: 2, text: "hilarious!!"},
+  {story_id: 1, user_id: 3, text: "pls start more stories this is so good"},
+  {story_id: 2, user_id: 1, text: "ur a troll"},
+  {story_id: 2, user_id: 5, text: "this is dumb. downvote."},
+  {story_id: 5, user_id: 3, text: "roflcopter!!"},
+  {story_id: 3, user_id: 7, text: "ppl add to this story"},
+  {story_id: 4, user_id: 2, text: "gibberish"},
+  {story_id: 6, user_id: 4, text: "this is a comment! yay!"}
+]
+
+Comment.create!(comments)
 
 
 Story.first.contributors.each do |contributor|

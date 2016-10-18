@@ -48,7 +48,7 @@
         <% unless @story.sentences.last.user_id == current_user.id %>
           <%= form_tag "/sentences", :id => "my_form", :class => "form-inline show-add-sentence-form" do -%>
           <%= hidden_field_tag :story_id, @story.id %>
-          <input class="form-control" name="sentence" placeholder="add a sentence">
+          <input class="form-control browse-add-sentence" name="sentence" placeholder="add a sentence">
           <%= submit_tag "Submit", :class => "btn btn-primary" %>
 
           <% if flash[:alert] %>

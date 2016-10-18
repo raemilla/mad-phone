@@ -2,8 +2,9 @@ $(document).ready(function(){
   $('.mark-done').on('click',function(){
     $('.mark-done').hide();
   });
-  $('#my_form').on('submit',function(){
-    var response = $('textarea').val()
+
+  $('#my_form').on('submit', function(){
+    var response = $('.browse-add-sentence').val()
     $('#my_form').hide();
     $('.sentence-add').append(response)
   });
