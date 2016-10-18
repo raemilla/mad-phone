@@ -85,3 +85,10 @@ body {
 .browse-tabs li:hover {
   cursor: pointer;
 }
+
+.fb-share-button {
+  position: relative;
+  bottom: 165px;
+  left: 310px;
+  z-index: 1;
+}

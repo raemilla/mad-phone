@@ -89,6 +89,8 @@
   font-size: 12px;
   text-decoration: italic;
   color: silver;
+  position: relative;
+  bottom: 10px;
 }
 
 .well {
