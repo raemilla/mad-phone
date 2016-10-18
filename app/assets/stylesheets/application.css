@@ -89,8 +89,6 @@
   font-size: 12px;
   text-decoration: italic;
   color: silver;
-  position: relative;
-  bottom: 10px;
 }
 
 .well {
@@ -129,4 +127,9 @@
 
 .jumbotron {
   background-color: #f7f7f9 !important;
+}
+
+.story-show-info {
+  position: relative;
+  bottom: 10px;
 }
